@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>zdbfs: monitoring</title>
+	<link href="css/bootstrap.dark.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+	<link href="css/zdbfs-monitor.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+	<div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-up glyphicon-text"></span>
+                        Data Read
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-read"></span> <span class="unit">MB</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-up glyphicon-text"></span>
+                        Read Calls
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-read-blks"></span> <span class="unit">call/s</span>
+                </div>
+            </div>
+            </div>
+
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-up glyphicon-text"></span>
+                        Data Read Throughput
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-read-speed"></span> <span class="unit">MB/s</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-up glyphicon-text"></span>
+                        Read History (MB/s)
+                    </h3>
+                </div>
+                <div class="panel-body panel-body-chart">
+                    <div class="chart-container">
+                        <div id="chart-read" class="chart-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-down glyphicon-text"></span>
+                        Blocks Write (now)
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-write"></span> <span class="unit">MB</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-down glyphicon-text"></span>
+                        Write Calls
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-write-blks"></span> <span class="unit">call/s</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-down glyphicon-text"></span>
+                        Data Write Throughput
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-write-speed"></span> <span class="unit">MB/s</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-chevron-down glyphicon-text"></span>
+                        Write History (MB/s)
+                    </h3>
+                </div>
+                <div class="panel-body panel-body-chart">
+                    <div class="chart-container">
+                        <div id="chart-write" class="chart-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-1">
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-flash glyphicon-text"></span>
+                        Calls
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-calls"></span> <span class="unit">calls</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-flash glyphicon-text"></span>
+                        Calls
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-calls-per-sec"></span> <span class="unit">call/s</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-1">
+            </div>
+
+            <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-flash glyphicon-text"></span>
+                        Calls History (Calls/s)
+                    </h3>
+                </div>
+                <div class="panel-body panel-body-chart">
+                    <div class="chart-container">
+                        <div id="chart-calls" class="chart-placeholder"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-file glyphicon-text"></span>
+                        Inodes
+                    </h3>
+                </div>
+                <div class="panel-body entries">
+                    <span class="values values-inodes"></span> <span class="unit">ino</span>
+                </div>
+            </div>
+            </div>
+
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-inbox glyphicon-text"></span>
+                        Blocks
+                    </h3>
+                </div>
+                <div class="panel-body entries">
+                    <span class="values values-blocks"></span> <span class="unit">blk</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-tags glyphicon-text"></span>
+                        Transit Cache Entries
+                    </h3>
+                </div>
+                <div class="panel-body entries">
+                    <span class="values values-transit"></span> <span class="unit">blk</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-ok glyphicon-text"></span>
+                        Cache Hit
+                    </h3>
+                </div>
+                <div class="panel-body cache">
+                    <span class="values values-cache-hit"></span>
+                </div>
+            </div>
+            </div>
+
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-remove glyphicon-text"></span>
+                        Cache Miss
+                    </h3>
+                </div>
+                <div class="panel-body cache">
+                    <span class="values values-cache-miss"></span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-import glyphicon-text"></span>
+                        Cache Flush (linear)
+                    </h3>
+                </div>
+                <div class="panel-body cache">
+                    <span class="values values-cache-flush-linear"></span>
+                </div>
+            </div>
+            </div>
+       </div>
+
+
+
+       <div class="row panel-zdb">
+            <div class="col-lg-1">
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-tasks glyphicon-text"></span>
+                        Virtual Metadata Size
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-virt-meta-size"></span> <span class="unit">MB</span>
+                </div>
+            </div>
+            </div>
+
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-hdd glyphicon-text"></span>
+                        Physical Metadata Size
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-phy-meta-size"></span>
+                    <span class="unit">MB</span>
+                    <span class="unit overhead values-meta-overhead"></span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-tasks glyphicon-text"></span>
+                        Virtual Data Size
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-virt-data-size"></span> <span class="unit">MB</span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-hdd glyphicon-text"></span>
+                        Physical Data Size
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-phy-data-size"></span>
+                    <span class="unit">MB</span>
+                    <span class="unit overhead values-data-overhead"></span>
+                </div>
+            </div>
+            </div>
+
+            <div class="col-lg-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-hdd glyphicon-text"></span>
+                        Data Overhead
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <span class="values values-total-overhead"></span>
+                    <span class="unit">MB</span>
+                </div>
+            </div>
+            </div>
+
+       </div>
+
+
+       <div class="row">
+            <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-barcode glyphicon-text"></span>
+                        Syscall Table
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-condensed syscalls">
+                        <tr>
+                            <td class="badge">getattr</td><td class="badge syscall-getattr">0</td>
+                            <td class="badge">create</td><td class="badge syscall-create">0</td>
+                            <td class="badge">mkdir</td><td class="badge syscall-mkdir">0</td>
+                            <td class="badge">ioctl</td><td class="badge syscall-ioctl">0</td>
+                            <td class="badge">read</td><td class="badge syscall-read">0</td>
+                        </tr>
+
+                        <tr>
+                            <td class="badge">setattr</td><td class="badge syscall-setattr">0</td>
+                            <td class="badge">unlink</td><td class="badge syscall-unlink">0</td>
+                            <td class="badge">readdir</td><td class="badge syscall-readdir">0</td>
+                            <td class="badge">statsfs</td><td class="badge syscall-statsfs">0</td>
+                            <td class="badge">write</td><td class="badge syscall-write">0</td>
+                        </tr>
+
+                        <tr>
+                            <td class="badge">rename</td><td class="badge syscall-rename">0</td>
+                            <td class="badge">open</td><td class="badge syscall-open">0</td>
+                            <td class="badge">rmdir</td><td class="badge syscall-rmdir">0</td>
+                            <td class="badge">symlink</td><td class="badge syscall-symlink">0</td>
+                            <td class="badge">link</td><td class="badge syscall-link">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div id="disconnected">Connecting...</div>
+	</div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.flot.js"></script>
+    <script src="js/jquery.flot.time.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/zdbfs-monitor.js"></script>
+</body>
+</html>

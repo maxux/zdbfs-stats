@@ -1,0 +1,119 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    padding: 15px;
+    background-color: #111111;
+}
+
+#wrapper {
+    background: transparent !important;
+}
+
+.panel {
+    background: rgba(50, 50, 50, 0.6) !important;
+}
+
+.glyphicon-text {
+    padding-right: 6px;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+table.syscalls {
+    font-size: 14px;
+    font-family: monospace;
+    table-layout: fixed;
+}
+
+table.syscalls td {
+    width: 10em;
+    margin-left: 0.2em;
+    margin-right: 0.2em;
+}
+
+table.syscalls .inactive {
+    opacity: 0.3;
+}
+
+/* badge extended */
+.badge-danger {
+    background-color: #B90B00;
+    color: #FFFFFF;
+}
+
+.badge-warning {
+    background-color: #C87406;
+}
+
+@keyframes redshadow {
+    from { text-shadow: 0px 0px 15px #F4A0A0; }
+    to { text-shadow : none; }
+}
+
+.text-danger {
+    animation: redshadow 1s infinite ease-in-out;
+    font-weight: bold;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+#disconnected {
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    color: #A52A2A;
+    font-weight: bold;
+    animation: blinker 1s linear infinite;
+}
+
+.panel-body {
+    text-align: center;
+}
+
+.chart-container {
+    height: 80px;
+}
+
+.chart-placeholder {
+    height: 100%;
+}
+
+.values {
+    font-size: 1.5em;
+}
+
+.overhead {
+    color: #236298;
+}
+
+.overhead::before {
+    content: "(";
+}
+
+.overhead::after {
+    content: ")";
+}
+
+.panel-body-chart {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 0;
+}
+
+.panel-zdb .panel-body {
+    background: #10202d;
+}
+
+.panel-body.entries {
+    background: #102d18;
+}
+
+.panel-body.cache {
+    background: #48221a;
+}
