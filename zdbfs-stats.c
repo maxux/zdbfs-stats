@@ -263,10 +263,12 @@ ns_stats_t *ns_fetch_stats(redisContext *ctx, char *namespace, ns_stats_t *stats
 char *zdbfs_statistics_json_dump(char *path, redisContext *ctx) {
     zdbfs_stats root;
 
+    memset(&root, 0x00, sizeof(zdbfs_stats));
+
     // fetch zdbfs statistics ioctl
     if(!fs_fetch_stats(path, &root.fs_root)) {
-        printf("could not fetch stats\n");
-        exit(EXIT_FAILURE);
+        // printf("could not fetch stats\n");
+        // return NULL;
     }
 
     // fetch database namespaces statistics
